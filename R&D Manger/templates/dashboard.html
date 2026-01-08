@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="p-5 mb-4 bg-light rounded-3">
+    <div class="container-fluid py-5">
+        <h1 class="display-5 fw-bold">R&D Management System</h1>
+        <p class="col-md-8 fs-4",text="uppercase">KITE Research & Management System Portal</p>
+    </div>
+</div>
+
+<div class="row align-items-md-stretch">
+    <div class="col-md-6">
+        <div class="h-100 p-5 text-white bg-dark rounded-3">
+            <h2>Journal Publications</h2>
+            <p class="display-4">{{ total_journals }}</p>
+            <p>Total Papers Indexed</p>
+            <a href="/add_journal" class="btn btn-outline-light" type="button">Add New Journal</a>
+            <a href="/view_journals" class="btn btn-outline-light" type="button">View All</a>
+        </div>
+    </div>
+
+
+</div>
+{% endblock %}

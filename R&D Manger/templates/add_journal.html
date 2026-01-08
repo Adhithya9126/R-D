@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mb-5">
+    <h2 class="mb-4">Add Journal Publication</h2>
+    <form method="post" enctype="multipart/form-data" class="card p-4 shadow-sm">
+        
+        <h5 class="text-primary border-bottom pb-2">1. Author Details</h5>
+        <div class="row mb-3">
+            <div class="col-md-3">
+                <label class="form-label">Dept</label>
+                <select name="dept" class="form-select">
+                    <option>CSE</option><option>ECE</option><option>IT</option>
+                    <option>AIDS</option><option>MECH</option><option>CYS</option>
+                    <option>CSBS</option><option>AIML</option><option>S&H</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Author Name</label>
+                <input type="text" name="author_name" class="form-control" required>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Position</label>
+                <select name="author_position" class="form-select">
+                    <option>First Author</option>
+                    <option>Corresponding Author</option>
+                    <option>Co-Author</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Collaborative Authors</label>
+                <input type="text" name="collaborative_authors" class="form-control" placeholder="Names...">
+            </div>
+        </div>
+
+        <h5 class="text-primary border-bottom pb-2 mt-4">2. Journal Information</h5>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label class="form-label">Title of the Paper</label>
+                <input type="text" name="paper_title" class="form-control" required>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Journal Status</label>
+                <select name="journal_status" class="form-select">
+                    <option>Published</option>
+                    <option>Accepted</option>
+                    <option>Submitted</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">Journal Scope</label>
+                <select name="journal_scope" class="form-select">
+                    <option>International</option>
+                    <option>National</option>
+                </select>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <label class="form-label">Journal Name</label>
+                <input type="text" name="journal_name" class="form-control" required>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">Publisher</label>
+                <input type="text" name="publisher" class="form-control">
+            </div>
+            <div class="col-md-2">
+                <label class="form-label">Month/Year</label>
+                <input type="text" name="month_year" class="form-control" placeholder="Jan 2025">
+            </div>
+            <div class="col-md-2">
+                <label class="form-label">ISSN</label>
+                <input type="text" name="issn" class="form-control">
+            </div>
+        </div>
+        <div class="mb-3">
+             <label class="form-label">Vol, Issue, Page No</label>
+             <input type="text" name="vol_issue_page" class="form-control" placeholder="Vol 10, Issue 2, pp 100-105">
+        </div>
+
+        <h5 class="text-primary border-bottom pb-2 mt-4">3. Indexing & Metrics</h5>
+        <div class="mb-3">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="is_scopus" value="1">
+                <label class="form-check-label">Scopus</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="is_sci" value="1">
+                <label class="form-check-label">SCI / SCIE / SSCI</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" name="is_wos" value="1">
+                <label class="form-check-label">Web of Science (WoS)</label>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col">
+                <label class="form-label">Impact Factor</label>
+                <input type="number" step="0.01" name="impact_factor" class="form-control">
+            </div>
+            <div class="col">
+                <label class="form-label">Citation Score</label>
+                <input type="number" step="0.01" name="citation_score" class="form-control">
+            </div>
+            <div class="col">
+                <label class="form-label">SJR (Q1-Q4)</label>
+                <select name="sjr_rating" class="form-select">
+                    <option value="">None</option>
+                    <option>Q1</option><option>Q2</option><option>Q3</option><option>Q4</option>
+                </select>
+            </div>
+            <div class="col">
+                <label class="form-label">h-Index</label>
+                <input type="number" name="h_index" class="form-control">
+            </div>
+            <div class="col">
+                <label class="form-label">Anna Univ List</label>
+                <select name="anna_univ_list" class="form-select">
+                    <option>Yes</option><option>No</option>
+                </select>
+            </div>
+        </div>
+
+        <h5 class="text-primary border-bottom pb-2 mt-4">4. Links & Proof</h5>
+        <div class="row mb-3">
+            <div class="col-md-4"><input type="text" name="preview_link" class="form-control" placeholder="Scopus Preview Link"></div>
+            <div class="col-md-4"><input type="text" name="home_page_link" class="form-control" placeholder="Journal Home Page Link"></div>
+            <div class="col-md-4"><input type="text" name="doi_link" class="form-control" placeholder="DOI / Article Link"></div>
+        </div>
+        
+        <div class="row mb-3">
+             <div class="col-md-6">
+                <label class="form-label">Collaboration (Nat/Int)</label>
+                <select name="collab_scope" class="form-select">
+                    <option value="">None</option>
+                    <option>National</option><option>International</option>
+                </select>
+             </div>
+             <div class="col-md-6">
+                <label class="form-label">Collaborating Institution</label>
+                <input type="text" name="collab_institution" class="form-control" placeholder="Institute Name...">
+             </div>
+        </div>
+
+        <div class="mb-4">
+            <label class="form-label fw-bold">Upload Proof (Screenshot/PDF)</label>
+            <input type="file" name="proof" class="form-control">
+        </div>
+
+        <button type="submit" class="btn btn-success btn-lg w-100">Save Journal Record</button>
+    </form>
+</div>
+{% endblock %}

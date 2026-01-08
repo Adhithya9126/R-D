@@ -1,0 +1,36 @@
+/* static/style.css */
+
+body {
+    background-color: #f8f9fa; /* Light grey background */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Add a subtle animation to the cards on the dashboard */
+.card {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s;
+    border: none;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+/* Make the navbar brand stand out */
+.navbar-brand {
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Status badges for the table */
+.badge {
+    font-size: 0.9em;
+    padding: 8px 12px;
+}
+
+/* Custom file upload input styling */
+input[type="file"] {
+    padding: 10px;
+    border: 1px solid #ced4da;
+    background-color: white;
+}

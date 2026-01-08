@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>All Journal Publications</h2>
+        <a href="/add_journal" class="btn btn-primary">Add New Record</a>
+    </div>
+
+    <div class="table-responsive shadow-sm" style="max-height: 80vh; overflow-y: auto;">
+        <table class="table table-bordered table-striped table-hover text-nowrap align-middle table-sm">
+            <thead class="table-dark sticky-top">
+                <tr>
+                    <th>S.No</th>
+                    <th>Status</th>
+                    <th>Dept</th>
+                    <th>Author Pos</th>
+                    <th>Author Name</th>
+                    <th>Collaborators</th>
+                    <th>Paper Title</th>
+                    <th>Publisher</th>
+                    <th>Journal Name</th>
+                    <th>Scope</th>
+                    <th>Vol/Issue</th>
+                    <th>Month/Year</th>
+                    <th>ISSN</th>
+                    <th>Scopus</th>
+                    <th>SCI/SCIE</th>
+                    <th>WoS</th>
+                    <th>Impact Factor</th>
+                    <th>Cite Score</th>
+                    <th>SJR</th>
+                    <th>h-Index</th>
+                    <th>Anna Univ</th>
+                    <th>Preview Link</th>
+                    <th>Home Page</th>
+                    <th>DOI Link</th>
+                    <th>Collab Scope</th>
+                    <th>Collab Inst</th>
+                    <th>Proof</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for j in journals %}
+                <tr>
+                    <td>{{ j.id }}</td>
+                    <td>{{ j.journal_status }}</td>
+                    <td>{{ j.department }}</td>
+                    <td>{{ j.author_position }}</td>
+                    <td>{{ j.author_name }}</td>
+                    <td>{{ j.collaborative_authors }}</td>
+                    <td title="{{ j.paper_title }}">{{ j.paper_title[:30] }}...</td>
+                    <td>{{ j.publisher }}</td>
+                    <td>{{ j.journal_name }}</td>
+                    <td>{{ j.journal_scope }}</td>
+                    <td>{{ j.vol_issue_page }}</td>
+                    <td>{{ j.month_year }}</td>
+                    <td>{{ j.issn_number }}</td>
+                    
+                    <td class="text-center">{{ '✅' if j.is_scopus else '' }}</td>
+                    <td class="text-center">{{ '✅' if j.is_sci_scie_ssci else '' }}</td>
+                    <td class="text-center">{{ '✅' if j.is_wos else '' }}</td>
+                    
+                    <td>{{ j.impact_factor }}</td>
+                    <td>{{ j.citation_score }}</td>
+                    <td>{{ j.sjr_rating }}</td>
+                    <td>{{ j.h_index }}</td>
+                    <td>{{ j.anna_univ_list }}</td>
+                    
+                    <td>{% if j.preview_link %}<a href="{{ j.preview_link }}" target="_blank">Link</a>{% endif %}</td>
+                    <td>{% if j.home_page_link %}<a href="{{ j.home_page_link }}" target="_blank">Link</a>{% endif %}</td>
+                    <td>{% if j.doi_link %}<a href="{{ j.doi_link }}" target="_blank">Link</a>{% endif %}</td>
+                    
+                    <td>{{ j.collab_scope }}</td>
+                    <td>{{ j.collab_institution }}</td>
+                    <td>
+                        {% if j.proof_filename %}
+                            <a href="/static/{{ j.proof_filename }}" target="_blank" class="btn btn-xs btn-info">View</a>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="27" class="text-center p-5">No records found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
